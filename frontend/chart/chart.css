@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    background: #0b0f14;
+    color: #e6e6e6;
+    font-family: Inter, monospace;
+}
+
+#layout {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    height: 100vh;
+}
+
+#priceChart {
+    background: #0b0f14;
+}
+
+#aiPanel {
+    padding: 12px;
+    border-left: 1px solid #222;
+}

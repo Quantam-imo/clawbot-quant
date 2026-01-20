@@ -1,33 +1,71 @@
 
+
+import json
+import os
 from datetime import datetime
 
-class IcebergMemory:
+class IcebergMemoryEngine:
+    FILE = "iceberg_memory.json"
+
     def __init__(self):
         self.zones = []
-        self.levels = []  # For price-level memory
+        self.load()
 
-    def record_zone(self, zone):
-        self.zones.append({
-            "id": len(self.zones) + 1,
-            "price_low": zone["low"],
-            "price_high": zone["high"],
-            "side": zone["side"],  # BUY or SELL
-            "session": zone["session"],
-            "timestamp": datetime.utcnow(),
-            "outcome": None,
-            "score": 0.0
-        })
+    def save_zone(self, zone):
+        self.zones.append(zone)
+        self.save()
 
-    def store(self, price_from, price_to, side, session):
-        self.levels.append({
-            "from": price_from,
-            "to": price_to,
+    def save(self):
+        with open(self.FILE, "w") as f:
+            json.dump(self.zones, f, indent=2)
+
+    def load(self):
+        if os.path.exists(self.FILE):
+            with open(self.FILE, "r") as f:
+                self.zones = json.load(f)
+        else:
+            self.zones = []
+
+    def record_iceberg(self, instrument, price_low, price_high, session, side, volume_strength, delta_bias, reaction_result):
+        zone = {
+            "instrument": instrument,
+            "price_low": price_low,
+            "price_high": price_high,
+            "session": session,
+            "date": datetime.utcnow().strftime("%Y-%m-%d"),
             "side": side,
-            "session": session
-        })
+            "volume_strength": volume_strength,
+            "delta_bias": delta_bias,
+            "reaction_result": reaction_result,
+            "times_retested": 0
+        }
+        self.save_zone(zone)
 
-    def update_outcome(self, zone_id, outcome):
-        for z in self.zones:
-            if z["id"] == zone_id:
-                z["outcome"] = outcome
-                z["score"] += 1 if outcome == "SUCCESS" else -1
+    def retest_zone(self, price, tolerance=0.5):
+        for zone in self.zones:
+            if zone["price_low"] - tolerance <= price <= zone["price_high"] + tolerance:
+                zone["times_retested"] += 1
+        self.save()
+
+    def get_active_zones(self, session=None):
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        return [z for z in self.zones if (session is None or z["session"] == session) and z["date"] <= today]
+
+    def get_zones_for_chart(self):
+        # For chart overlays: return all zones with price, session, and side
+        return [
+            {
+                "price_low": z["price_low"],
+                "price_high": z["price_high"],
+                "session": z["session"],
+                "side": z["side"],
+                "date": z["date"],
+                "times_retested": z["times_retested"]
+            }
+            for z in self.zones
+        ]
+
+    def clear_old_zones(self, days=10):
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        self.zones = [z for z in self.zones if (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(z["date"], "%Y-%m-%d")).days <= days]
+        self.save()
