@@ -1,0 +1,90 @@
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List
+import requests
+import os
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class VolumeProfileRequest(BaseModel):
+    symbol: str
+    interval: str = "1d"
+    limit: int = 100
+
+class NewsRequest(BaseModel):
+    symbol: str
+
+@app.post("/api/volume-profile")
+def volume_profile(req: VolumeProfileRequest):
+    # Data Bento API integration (replace with your real API key and endpoint)
+    api_key = os.getenv("DATABENTO_API_KEY", "demo")
+    url = f"https://hist.databento.com/v0/timeseries/download"
+    params = {
+        "dataset": "GLBX.MDP3",
+        "symbols": req.symbol,
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "schema": "ohlcv-1d",
+        "format": "json"
+    }
+    headers = {"Authorization": f"Bearer {api_key}"}
+    try:
+        r = requests.get(url, params=params, headers=headers, timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        bars = [item["date"] for item in data["data"]]
+        volumes = [item["volume"] for item in data["data"]]
+        return {"bars": bars, "volumes": volumes}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/api/gann")
+def gann():
+    # Placeholder for Gann API integration
+    # Replace with your real Gann API call or logic
+    return {"result": "Gann analysis result (real integration pending)"}
+
+@app.get("/api/astrology")
+def astrology():
+    # Placeholder for Astrology API integration
+    # Replace with your real Astrology API call or logic
+    return {"result": "Astrology analysis result (real integration pending)"}
+
+@app.post("/api/news")
+def news(req: NewsRequest):
+    # ForexFactory scraping (demo, for real use, use a news API or proper parser)
+    try:
+        url = "https://www.forexfactory.com/news"
+        r = requests.get(url, timeout=10)
+        r.raise_for_status()
+        # Simple parse: get headlines (for demo, not robust)
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(r.text, "html.parser")
+        headlines = [h.get_text(strip=True) for h in soup.find_all("a", class_="title")][:5]
+        news = "\n".join(headlines)
+        # Market move logic placeholder
+        market_move = "Market move analysis based on news (demo)"
+        return {"news": news, "market_move": market_move}
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/api/ai-mentor/{concept}")
+def ai_mentor(concept: str):
+    # Custom mentor logic or connect to your preferred AI API here
+    templates = {
+        'histogram': 'A histogram displays the distribution of volume over bars.',
+        'gann': 'Gann analysis uses geometric, numeric, and time cycles in trading.',
+        'astrology': 'Astrology analysis considers planetary positions for market prediction.',
+        'news': 'News analysis helps predict market movement based on events.'
+    }
+    return {"concept": concept, "text": templates.get(concept, 'Concept not found. Please add more templates.')}

@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; }
+.container { max-width: 600px; margin: 40px auto; padding: 20px; background: #f9f9f9; border-radius: 8px; }
+.button-row { display: flex; gap: 10px; margin-bottom: 20px; }
+.button-row button { padding: 10px 18px; border: none; border-radius: 4px; background: #eee; cursor: pointer; font-weight: bold; }
+.button-row button.active { background: #007bff; color: #fff; }
+.panel { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 20px; min-height: 120px; margin-top: 10px; }
+.input-row { margin-bottom: 10px; }
+input { padding: 6px 10px; border-radius: 4px; border: 1px solid #ccc; }

@@ -1,3 +1,114 @@
+from fastapi import Query
+from fastapi import APIRouter
+
+# Initialize router at the top so it is available for all endpoints
+router = APIRouter(prefix="/api/v1", tags=["institutional"])
+
+# ==================== OHLC API ENDPOINT ====================
+
+@router.get("/api/ohlc/{timeframe}")
+async def get_ohlc_data(
+    timeframe: str,
+    limit: int = Query(100, description="Number of bars to return"),
+    symbol: str = Query("GC=F", description="Market symbol (default: Gold Futures)"),
+    start: str = Query(None, description="ISO8601 start time for historical data (optional)"),
+    end: str = Query(None, description="ISO8601 end time for historical data (optional)")
+):
+    """Get OHLCV bars for the requested timeframe (1m, 5m, 15m, 1h, etc). Supports historical queries with start/end."""
+    try:
+        candles = await fetch_ohlc_candles(limit=limit, interval=timeframe, start=start, end=end)
+        if not candles:
+            return {"bars": [], "message": "No data available"}
+        return {"bars": candles, "symbol": symbol, "interval": timeframe, "count": len(candles)}
+    except Exception as e:
+        return {"bars": [], "error": str(e)}
+# ==================== CLAWBOT Q&A ENDPOINT ====================
+
+
+from fastapi import Request, APIRouter
+from pydantic import BaseModel
+import os
+try:
+    import openai
+except ImportError:
+    openai = None
+
+
+# Initialize router at the top so it is available for all endpoints
+router = APIRouter(prefix="/api/v1", tags=["institutional"])
+
+class ClawbotAskRequest(BaseModel):
+    question: str
+
+class ClawbotAskResponse(BaseModel):
+    reply: str
+
+
+import requests
+
+@router.post("/clawbot/ask", response_model=ClawbotAskResponse)
+async def clawbot_ask(request: ClawbotAskRequest):
+    q = request.question.strip()
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    ollama_api_url = os.getenv("OLLAMA_API_URL", "http://localhost:11434/v1/chat/completions")
+    use_ollama = not openai_api_key or os.getenv("USE_OLLAMA", "0") == "1"
+    # Try OpenAI if key is set and not forcing Ollama
+    if openai and openai_api_key and not use_ollama:
+        try:
+            client = openai.OpenAI(api_key=openai_api_key)
+            completion = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are Clawbot, a helpful trading and platform assistant for gold futures and orderflow analysis."},
+                    {"role": "user", "content": q}
+                ],
+                max_tokens=200,
+                temperature=0.7
+            )
+            answer = completion.choices[0].message.content.strip()
+            return {"reply": answer}
+        except Exception as e:
+            return {"reply": f"Clawbot LLM error: {str(e)}"}
+    # Try Ollama (OpenAI-compatible local LLM)
+    try:
+        payload = {
+            "model": os.getenv("OLLAMA_MODEL", "llama2"),
+            "messages": [
+                {"role": "system", "content": "You are Clawbot, a helpful trading and platform assistant for gold futures and orderflow analysis."},
+                {"role": "user", "content": q}
+            ],
+            "max_tokens": 200,
+            "temperature": 0.7
+        }
+        resp = requests.post(ollama_api_url, json=payload, timeout=30)
+        if resp.ok:
+            data = resp.json()
+            # Ollama returns choices like OpenAI
+            answer = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            if answer:
+                return {"reply": answer.strip()}
+        # If Ollama returns error or no answer, fallback
+    except Exception as e:
+        pass
+    # Try llama-cpp-python local model
+    try:
+        from backend.clawbot_llm import ask_llama
+        answer = ask_llama(q)
+        if answer:
+            return {"reply": answer}
+    except Exception as e:
+        pass
+    # Fallback: rule-based
+    ql = q.lower()
+    if not ql:
+        return {"reply": "Please enter a question."}
+    if "trend" in ql:
+        return {"reply": "The current trend is determined by price action, volume, and orderflow. Check the chart and AI Mentor for live signals."}
+    if "iceberg" in ql:
+        return {"reply": "Iceberg orders are detected by analyzing hidden liquidity and volume spikes. Watch for blue zones on the chart."}
+    if "how" in ql or "help" in ql:
+        return {"reply": "You can ask about market structure, orderflow, Gann, or platform features. Try: 'How do I use volume profile?'"}
+    return {"reply": "Clawbot: Sorry, I don't have a specific answer for that yet. Please check the docs or ask about market features!"}
 """
 FastAPI routes - Expose all engines via REST endpoints.
 Zero logic change to existing engines (pure wrapper layer).
@@ -51,8 +162,6 @@ from backend.api.schemas import (
     HealthResponse
 )
 
-# Initialize router
-router = APIRouter(prefix="/api/v1", tags=["institutional"])
 
 # Initialize all engines as singletons
 gann_engine = GannEngine()

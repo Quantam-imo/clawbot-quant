@@ -4,8 +4,43 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth * 0.75;
 canvas.height = window.innerHeight;
 
+
 let bars = [];
 let icebergs = [];
+
+// Fetch real chart data from backend API
+async function fetchChartData() {
+    try {
+        const res = await fetch('/api/v1/chart', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                symbol: 'GC=F',
+                interval: '5m',
+                bars: 100,
+                include_levels: true,
+                include_icebergs: true
+            })
+        });
+        if (!res.ok) throw new Error('Failed to fetch chart data');
+        const data = await res.json();
+        bars = (data.bars || []).map(bar => ({
+            open: bar.open,
+            high: bar.high,
+            low: bar.low,
+            close: bar.close,
+            volume: bar.volume
+        }));
+        icebergs = data.iceberg_zones || [];
+        draw();
+    } catch (e) {
+        console.error('Chart fetch error:', e);
+    }
+}
+
+// Poll for live updates every 5 seconds
+setInterval(fetchChartData, 5000);
+fetchChartData();
 
 function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);

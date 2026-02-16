@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+print(f"[DEBUG] DATABENTO_API_KEY at startup: {os.getenv('DATABENTO_API_KEY')}")
 """
 FastAPI Server - Main entry point for Quantum Market Observer backend.
 Institutional-grade REST API for live market analysis and AI decision making.
@@ -7,6 +11,10 @@ Usage:
 """
 
 from fastapi import FastAPI
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+import load_env  # Ensure .env is loaded
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import sys
@@ -36,15 +44,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     # Allow local dev and Codespaces wildcard
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5500",
-        "http://localhost:8080",
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:5500",
-        "http://127.0.0.1:8080",
-    ],
-    allow_origin_regex=r"https://.*\.app\.github\.dev",
+    allow_origins=["*"],
+    allow_origin_regex=r"https?://localhost(:[0-9]+)?|https://.*\\.app\\.github\\.dev",
     allow_credentials=True,
     allow_methods=["*"],
     expose_headers=["*"],

@@ -7,6 +7,79 @@
 </head>
 <body>
 
+
+<!-- Clawbot Floating Button and Panel -->
+<div id="clawbot-float-btn" style="position:fixed;bottom:32px;right:32px;z-index:9999;background:#222;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px #0003;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;">
+  <span style="font-size:2rem;">🤖</span>
+</div>
+<div id="clawbot-panel" style="position:fixed;bottom:100px;right:32px;z-index:10000;width:320px;max-width:90vw;background:#181c24;color:#fff;border-radius:12px;box-shadow:0 4px 24px #0006;padding:0;display:none;flex-direction:column;overflow:hidden;">
+  <div style="background:#232a36;padding:12px 16px;font-weight:bold;display:flex;align-items:center;justify-content:space-between;">
+    <span>Clawbot Assistant</span>
+    <button id="clawbot-close-btn" style="background:none;border:none;color:#fff;font-size:1.2em;cursor:pointer;">✕</button>
+  </div>
+  <div id="clawbot-content" style="padding:16px;font-size:1em;min-height:80px;max-height:220px;overflow-y:auto;">
+    <div id="clawbot-messages">
+      <div style='margin-bottom:10px;'>Hi! I'm Clawbot. How can I help you today?</div>
+      <ul style="padding-left:18px;margin-bottom:10px;">
+        <li>Market tips &amp; explanations</li>
+        <li>How to use this platform</li>
+        <li>Quick links to docs</li>
+        <li>Contact support</li>
+      </ul>
+    </div>
+  </div>
+  <form id="clawbot-form" style="display:flex;gap:6px;padding:10px 12px 12px 12px;background:#202634;">
+    <input id="clawbot-input" type="text" placeholder="Type your question..." autocomplete="off" style="flex:1;padding:7px 10px;border-radius:6px;border:none;font-size:1em;background:#232a36;color:#fff;outline:none;" />
+    <button type="submit" style="background:#3fb950;color:#fff;border:none;border-radius:6px;padding:7px 16px;font-size:1em;cursor:pointer;">Send</button>
+  </form>
+</div>
+
+<script>
+// Floating Clawbot button logic
+const clawbotBtn = document.getElementById('clawbot-float-btn');
+const clawbotPanel = document.getElementById('clawbot-panel');
+const clawbotClose = document.getElementById('clawbot-close-btn');
+const clawbotForm = document.getElementById('clawbot-form');
+const clawbotInput = document.getElementById('clawbot-input');
+const clawbotMessages = document.getElementById('clawbot-messages');
+
+clawbotBtn.onclick = () => { clawbotPanel.style.display = 'flex'; };
+clawbotClose.onclick = () => { clawbotPanel.style.display = 'none'; };
+
+clawbotForm.onsubmit = async (e) => {
+  e.preventDefault();
+  const msg = clawbotInput.value.trim();
+  if (!msg) return;
+  // Display user message
+  const userMsg = document.createElement('div');
+  userMsg.style.margin = '8px 0';
+  userMsg.innerHTML = `<b>You:</b> ${msg}`;
+  clawbotMessages.appendChild(userMsg);
+  clawbotInput.value = '';
+  clawbotMessages.scrollTop = clawbotMessages.scrollHeight;
+  // Fetch reply from backend
+  try {
+    const res = await fetch('/api/v1/clawbot/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: msg })
+    });
+    const data = await res.json();
+    const botMsg = document.createElement('div');
+    botMsg.style.margin = '8px 0';
+    botMsg.innerHTML = `<b>Clawbot:</b> ${data.reply}`;
+    clawbotMessages.appendChild(botMsg);
+    clawbotMessages.scrollTop = clawbotMessages.scrollHeight;
+  } catch (err) {
+    const botMsg = document.createElement('div');
+    botMsg.style.margin = '8px 0';
+    botMsg.innerHTML = `<b>Clawbot:</b> (Error contacting backend)`;
+    clawbotMessages.appendChild(botMsg);
+    clawbotMessages.scrollTop = clawbotMessages.scrollHeight;
+  }
+};
+</script>
+
 <div id="app">
 
   <!-- TRADING TOOLBAR -->
@@ -41,7 +114,8 @@
       <button class="indicator-btn" data-indicator="volumeprofile" title="Volume Profile">📊</button>
       <button class="indicator-btn" data-indicator="vp-legend" title="VP Legend Panel">📋</button>
       <button class="indicator-btn" data-indicator="sessions" title="Session Markers">🕐</button>
-      <button class="indicator-btn" data-indicator="iceberg" title="Iceberg Zones">🧊</button>
+      <button class="indicator-btn" data-indicator="iceberg-zones" title="Iceberg Price Detection" style="background:#e0f2ff;color:#2563eb;font-weight:bold;border:2px solid #2563eb;box-shadow:0 0 6px #60a5fa;">🧊 Zones</button>
+      <button class="indicator-btn" data-indicator="iceberg-bubble" title="Iceberg Bubble Absorption Chart" style="background:#f0e7ff;color:#a21caf;font-weight:bold;border:2px solid #a21caf;box-shadow:0 0 6px #c084fc;">🫧 Bubble</button>
       <button class="indicator-btn" data-indicator="sweeps" title="Liquidity Sweeps">🌊</button>
       <button class="indicator-btn" data-indicator="fvg" title="Fair Value Gaps">⬜</button>
       <button class="indicator-btn" data-indicator="liquidity" title="Liquidity Pools">💧</button>
@@ -49,9 +123,9 @@
     </div>
 
     <!-- View Controls Section -->
-    <div class="header-section view-section">
+    <div class="header-section view-section" style="display:flex !important; opacity:1 !important; background:rgba(30,60,120,0.08); border:2px solid #3fb950; z-index:10001;">
       <button class="tool-btn" id="cursorOHLCBtn" title="Toggle Cursor OHLC Display">📋</button>
-      <button class="tool-btn" data-tool="orderflow" id="orderflowToggle" title="Toggle Iceberg Orderflow">🧊</button>
+      <button class="tool-btn" data-tool="orderflow" id="orderflowToggle" title="Toggle Iceberg Orderflow" style="background:#fffbe6; color:#166534; border:2px solid #3fb950; font-weight:bold; box-shadow:0 0 8px #3fb950; z-index:10002;">🧊 Table</button>
       <button class="tool-btn" id="rawOrdersBtn" title="Toggle Raw Orders">📊</button>
       <button class="tool-btn" id="orderflowVisBtn" title="Toggle ICT Indicator">ICT</button>
       <button class="tool-btn" id="domLadderBtn" title="Show DOM Ladder Panel">🪜</button>
@@ -98,6 +172,10 @@
       </div>
     </div>
   </div>
+
+
+  <!-- ICEBERG DRAWER PANEL CONTAINER (for chart panel) -->
+  <div id="drawerContainer" style="position:fixed; top:90px; left:32px; z-index:10010; max-width:420px; min-width:320px;"></div>
 
   <!-- MAIN GRID -->
   <div id="layout" class="mentor-collapsed">

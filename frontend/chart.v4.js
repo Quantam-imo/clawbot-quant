@@ -16,9 +16,104 @@ if (!miniCanvas) {
 }
 const miniCtx = miniCanvas.getContext("2d");
 
-// ========== ASTRO HEADER DISPLAY - REMOVED ==========
-// Astro indicators have been permanently removed from header/toolbar
-// function updateAstroHeaderDisplay() - DELETED
+
+// ========== UNIFIED DRAWER CONTAINER ========== 
+let drawerContainer = document.getElementById('drawerContainer');
+if (!drawerContainer) {
+    drawerContainer = document.createElement('div');
+    drawerContainer.id = 'drawerContainer';
+    drawerContainer.style.position = 'fixed';
+    drawerContainer.style.top = '0';
+    drawerContainer.style.left = '0';
+    drawerContainer.style.height = '100vh';
+    drawerContainer.style.width = '420px';
+    drawerContainer.style.maxWidth = '90vw';
+    drawerContainer.style.zIndex = '10020';
+    drawerContainer.style.display = 'flex';
+    drawerContainer.style.flexDirection = 'column';
+    drawerContainer.style.gap = '12px';
+    drawerContainer.style.background = '#0e0e0e';
+    drawerContainer.style.boxShadow = '4px 0 32px #000a';
+    drawerContainer.style.transition = 'transform 0.35s cubic-bezier(.4,1.4,.6,1)';
+    drawerContainer.style.transform = 'translateX(-100%)'; // Hidden by default
+    document.body.appendChild(drawerContainer);
+}
+
+function showDrawerContainer(show) {
+    if (show) {
+        drawerContainer.style.transform = 'translateX(0)';
+    } else {
+        drawerContainer.style.transform = 'translateX(-100%)';
+    }
+}
+
+// Global toggle for AI Mentor button
+const mentorBtn = document.getElementById('mentorToggleBtn');
+let drawerVisible = false;
+if (mentorBtn) {
+    mentorBtn.addEventListener('click', () => {
+        drawerVisible = !drawerVisible;
+        showDrawerContainer(drawerVisible);
+    });
+}
+
+// Always render the AI Mentor Verdict drawer at the top
+function setupMentorVerdictDrawer(data) {
+    let mentorDrawer = document.getElementById('mentorVerdictDrawer');
+    if (!mentorDrawer) {
+        mentorDrawer = document.createElement('div');
+        mentorDrawer.id = 'mentorVerdictDrawer';
+        mentorDrawer.style.background = '#1e293b';
+        mentorDrawer.style.border = '2px solid #2563eb';
+        mentorDrawer.style.borderRadius = '10px';
+        mentorDrawer.style.margin = '12px 0 0 0';
+        mentorDrawer.style.boxShadow = '0 2px 16px #2563eb22';
+        mentorDrawer.style.padding = '0';
+        mentorDrawer.style.overflow = 'hidden';
+        // Insert mentor verdict drawer after the iceberg story drawer if it exists, else at the end
+        const icebergDrawer = document.getElementById('icebergDrawer');
+        if (icebergDrawer && icebergDrawer.nextSibling) {
+            drawerContainer.insertBefore(mentorDrawer, icebergDrawer.nextSibling);
+        } else if (icebergDrawer) {
+            drawerContainer.appendChild(mentorDrawer);
+        } else {
+            drawerContainer.appendChild(mentorDrawer);
+        }
+    }
+    // Render mentor verdict content
+    const verdict = data?.ai_verdict || 'WAIT';
+    const confidence = data?.confidence_percent ?? 0;
+    const story = data?.context_long_story || data?.context_story || 'No narrative available.';
+    const bullets = data?.context_bullets || [];
+    const sessionNarr = data?.session_narrative || '';
+    const chipColor = verdict === 'BUY' ? '#166534' : verdict === 'SELL' ? '#7f1d1d' : '#1d4ed8';
+    mentorDrawer.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:#2563eb;color:#fff;border-top-left-radius:8px;border-top-right-radius:8px;">
+            <span style="font-weight:bold;font-size:1.1em;">🤖 AI Mentor Verdict</span>
+            <span id="narrativeVerdictChip" style="margin-left:auto;background:${chipColor};color:#e0f2fe;padding:4px 12px;border-radius:16px;font-weight:600;">${verdict}</span>
+        </div>
+        <div id="narrativeDrawerBody" style="padding:16px;background:#1e293b;color:#cbd5e1;">
+            <div style="font-weight:700;color:#d1d5db;margin-bottom:6px;">Narrative</div>
+            <div>${story}</div>
+            ${sessionNarr ? `<div style=\"margin-top:6px;color:#94a3b8;font-size:12px;\"><em>${sessionNarr}</em></div>` : ''}
+            ${bullets.length ? `<ul style=\"margin:6px 0 0 16px;padding:0;color:#a7b3c6;\">${bullets.map(b => `<li style=\"margin-bottom:2px;\">${b}</li>`).join('')}</ul>` : ''}
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+                <div style="background:#111827;border:1px solid #1f2937;padding:8px 10px;border-radius:6px;color:#e5e7eb;font-size:12px;">
+                    <div style="font-weight:700;color:#93c5fd;margin-bottom:2px;">AI Verdict</div>
+                    <div style="font-weight:600;">${verdict}</div>
+                </div>
+                <div style="background:#111827;border:1px solid #1f2937;padding:8px 10px;border-radius:6px;color:#e5e7eb;font-size:12px;">
+                    <div style="font-weight:700;color:#93c5fd;margin-bottom:2px;">Confidence</div>
+                    <div style="font-weight:600;">${confidence}%</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Patch: Remove floating/absolute positioning from all drawer panels (Gann, Astro, Iceberg, News, Global)
+// Patch: All setup*Drawer functions must append to drawerContainer, not body
+// Patch: Remove any duplicate mentor verdict panels
 
 let dpiScale = window.devicePixelRatio || 1; // Global DPI scale factor
 
@@ -718,7 +813,7 @@ function updateMentor(data) {
     setupNarrativeDrawer(data);
     setupGannDrawer(data);
     setupAstroDrawer(data);
-    setupIcebergDrawer(icebergZones, ohlcBars);
+    // Do NOT call setupIcebergDrawer here. Iceberg Orderflow drawer is deprecated from left drawer and should not be shown when AI Mentor is toggled.
     setupNewsDrawer(data);
     setupGlobalMarketsDrawer(data);
 
@@ -741,25 +836,85 @@ function setupNarrativeDrawer(data) {
     if (!drawer) {
         drawer = document.createElement("div");
         drawer.id = "narrativeDrawer";
+        drawer.style.position = "fixed";
+        drawer.style.top = "120px";
+        drawer.style.left = "40px";
+        drawer.style.zIndex = "10020";
+        drawer.style.cursor = "move";
         drawer.innerHTML = `
-            <div id="narrativeDrawerHeader" style="display:flex; align-items:center; gap:8px; padding:8px; background:#0f172a; border:1px solid #1f2937; border-radius:6px; cursor:pointer;">
+            <div id="narrativeDrawerHeader" style="display:flex; align-items:center; gap:8px; padding:8px; background:#0f172a; border:1px solid #1f2937; border-radius:6px; cursor:grab;">
                 <div style="background:#111827; border:1px solid #1f2937; color:#93c5fd; padding:4px 8px; border-radius:4px; font-weight:700;">🧠 Mentor Verdict</div>
                 <div id="narrativeVerdictChip" style="background:#1d4ed8; color:#e0f2fe; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:700;">WAIT</div>
                 <div id="narrativeDrawerStatus" style="color:#9ca3af; font-size:12px; margin-left:auto;">Tap to expand</div>
+                <button id="narrativeDrawerClose" style="margin-left:8px; background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">✕</button>
             </div>
-            <div id="narrativeDrawerBody" style="display:none; padding:10px; background:#0b1220; border:1px solid #1f2937; border-radius:6px; margin-top:6px;"></div>
+            <div id="narrativeDrawerBody" style="display:none; padding:10px; background:#0f172a; border:1px solid #1f2937; border-radius:6px; margin-top:6px;"></div>
         `;
         container.prepend(drawer);
 
+        // Drag logic
         const header = drawer.querySelector("#narrativeDrawerHeader");
-        header.addEventListener("click", () => {
+        let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
+        header.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            dragOffsetX = e.clientX - drawer.offsetLeft;
+            dragOffsetY = e.clientY - drawer.offsetTop;
+            header.style.cursor = "grabbing";
+        });
+        document.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                drawer.style.left = (e.clientX - dragOffsetX) + "px";
+                drawer.style.top = (e.clientY - dragOffsetY) + "px";
+            }
+        });
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            header.style.cursor = "grab";
+        });
+
+        // Expand/collapse logic
+        header.addEventListener("click", (event) => {
+            if (event.target.id === "narrativeDrawerClose") return; // Don't toggle if close button
             const body = drawer.querySelector("#narrativeDrawerBody");
             const status = drawer.querySelector("#narrativeDrawerStatus");
             const isOpen = body.style.display === "block";
             body.style.display = isOpen ? "none" : "block";
             status.textContent = isOpen ? "Tap to expand" : "Collapse";
         });
+
+        // Close button logic
+        drawer.querySelector("#narrativeDrawerClose").addEventListener("click", () => {
+            drawer.remove();
+            // Show static mentor panel again
+            const mentorPanel = document.getElementById("mentor");
+            if (mentorPanel) mentorPanel.style.display = "";
+        });
     }
+
+        // Hide static mentor panel and drawer by default
+        const mentorPanel = document.getElementById("mentor");
+        if (mentorPanel) mentorPanel.style.display = "none";
+
+        // Add global toggle for mentor panel and drawer
+        if (!window.__mentorPanelToggleSetup) {
+            window.__mentorPanelToggleSetup = true;
+            const mentorBtn = document.getElementById("mentorToggleBtn");
+            if (mentorBtn) {
+                mentorBtn.addEventListener("click", () => {
+                    const drawer = document.getElementById("narrativeDrawer");
+                    const mentorPanel = document.getElementById("mentor");
+                    // If either is visible, hide both
+                    if ((drawer && drawer.style.display !== "none") || (mentorPanel && mentorPanel.style.display !== "none")) {
+                        if (drawer) drawer.style.display = "none";
+                        if (mentorPanel) mentorPanel.style.display = "none";
+                    } else {
+                        // Show drawer, hide static panel
+                        if (drawer) drawer.style.display = "";
+                        if (mentorPanel) mentorPanel.style.display = "none";
+                    }
+                });
+            }
+        }
 
     const verdict = data.ai_verdict || 'WAIT';
     const confidence = data.confidence_percent ?? 0;
@@ -782,10 +937,10 @@ function setupNarrativeDrawer(data) {
         : '';
 
     body.innerHTML = `
-        <div style="margin-bottom:8px; padding:8px; background:#0b1220; border-left:3px solid #3b82f6; border-radius:4px; line-height:1.4; color:#cbd5e1;">
+        <div style="margin-bottom:8px; padding:8px; background:#0f172a; border-left:3px solid #3b82f6; border-radius:4px; line-height:1.4; color:#cbd5e1;">
             <div style="font-weight:700; color:#d1d5db; margin-bottom:6px;">Narrative</div>
             <div>${story}</div>
-            ${sessionNarr ? `<div style="margin-top:6px; color:#94a3b8; font-size:12px;"><em>${sessionNarr}</em></div>` : ''}
+            ${sessionNarr ? `<div style=\"margin-top:6px; color:#94a3b8; font-size:12px;\"><em>${sessionNarr}</em></div>` : ''}
             ${bulletsHTML}
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -816,7 +971,7 @@ function setupAstroDrawer(data) {
                 <button id="astroCyclesToggle" style="margin-left:auto; background:#1a1a2e; border:1px solid #3d2963; color:#6b7280; padding:4px 8px; border-radius:4px; font-size:11px; cursor:pointer; font-weight:600; margin-right:4px;">⚪ Cycles: OFF</button>
                 <button id="astroIndicatorsToggle" style="background:#1a1a2e; border:1px solid #3d2963; color:#7dd3fc; padding:4px 8px; border-radius:4px; font-size:11px; cursor:pointer; font-weight:600;">🌙 Indicators: ON</button>
             </div>
-            <div id="astroDrawerBody" style="display:none; padding:10px; background:#0a0514; border:1px solid #3d2963; border-radius:6px; margin-top:6px;"></div>
+            <div id="astroDrawerBody" style="display:none; padding:10px; background:#1a0a2e; border:1px solid #3d2963; border-radius:6px; margin-top:6px;"></div>
         `;
         container.appendChild(drawer);
         
@@ -869,7 +1024,7 @@ function setupAstroDrawer(data) {
         const outlookColor = outlook.outlook === "BULLISH" ? "#10b981" : outlook.outlook === "BEARISH" ? "#ef4444" : "#6b7280";
         const volColor = outlook.volatility === "HIGH" ? "#ef4444" : outlook.volatility === "MODERATE" ? "#f59e0b" : "#10b981";
         
-        html += `<div style="margin-bottom:12px; padding:10px; background:#1a1a2e; border-left:3px solid ${outlookColor}; border-radius:4px;">`;
+        html += `<div style="margin-bottom:12px; padding:10px; background:#1a0a2e; border-left:3px solid ${outlookColor}; border-radius:4px;">`;
         html += `<div style="font-weight:600; color:${outlookColor}; margin-bottom:6px; font-size:14px;">🔮 Overall Trading Outlook: ${outlook.outlook}</div>`;
         html += `<div style="color:#cbd5e1; font-size:12px; margin-bottom:4px;">Confidence: <span style="color:#60a5fa;">${outlook.confidence}%</span> | Volatility: <span style="color:${volColor};">${outlook.volatility}</span></div>`;
         html += `<div style="display:flex; gap:12px; margin-top:6px;">`;
@@ -884,7 +1039,7 @@ function setupAstroDrawer(data) {
         const moon = data.moon_phase;
         const moonIcon = moon.phase.includes("Full") ? "🌕" : moon.phase.includes("New") ? "🌑" : moon.phase.includes("Waxing") ? "🌒" : "🌘";
         
-        html += `<div style="margin-bottom:12px; padding:8px; background:#0f1419; border-left:3px solid #60a5fa; border-radius:4px;">`;
+        html += `<div style="margin-bottom:12px; padding:8px; background:#1a0a2e; border-left:3px solid #60a5fa; border-radius:4px;">`;
         html += `<div style="font-weight:600; color:#60a5fa; margin-bottom:4px;">${moonIcon} Moon Phase: ${moon.phase}</div>`;
         html += `<div style="color:#94a3b8; font-size:11px;">${moon.market_impact}</div>`;
         html += `<div style="margin-top:4px; background:#1c2532; height:6px; border-radius:3px; overflow:hidden;">`;
@@ -895,7 +1050,7 @@ function setupAstroDrawer(data) {
     
     // Active Aspects
     if (data.astro_aspects && data.astro_aspects.length > 0) {
-        html += `<div style="margin-bottom:12px; padding:8px; background:#1e1430; border-left:3px solid #c084fc; border-radius:4px;">`;
+        html += `<div style="margin-bottom:12px; padding:8px; background:#1a0a2e; border-left:3px solid #c084fc; border-radius:4px;">`;
         html += `<div style="font-weight:600; color:#c084fc; margin-bottom:6px;">✨ Active Planetary Aspects</div>`;
         
         data.astro_aspects.slice(0, 5).forEach(aspect => {
@@ -1154,7 +1309,7 @@ function setupIcebergDrawer(zones, bars) {
         drawer.id = "icebergDrawer";
         drawer.innerHTML = `
             <div id="icebergDrawerHeader" style="display:flex; align-items:center; gap:8px; padding:8px; background:#0b1220; border:1px solid #1f2937; border-radius:6px; cursor:pointer;">
-                <div style="background:#111827; border:1px solid #1f2937; color:#fbbf24; padding:4px 8px; border-radius:4px; font-weight:600;">🧊 Iceberg Orderflow</div>
+                <div style="background:#111827; border:1px solid #1f2937; color:#fbbf24; padding:4px 8px; border-radius:4px; font-weight:600;">🧊 Iceberg Story</div>
                 <div id="icebergDrawerStatus" style="color:#9ca3af; font-size:12px;">Tap to expand</div>
                 <div style="margin-left:auto; color:#9ca3af; font-size:12px;">[toggle]</div>
             </div>
@@ -1171,6 +1326,8 @@ function setupIcebergDrawer(zones, bars) {
             status.textContent = isOpen ? "Tap to expand" : "Collapse";
         });
     }
+
+    // Do not force open the drawer body here. Only update content, preserve collapsed/expanded state.
 
     const body = drawer.querySelector("#icebergDrawerBody");
     if (!zones || zones.length === 0) {
@@ -1246,17 +1403,9 @@ function setupIcebergDrawer(zones, bars) {
     narrative += `</div>`;
     narrative += `</div>`;
 
-    // Remove the mentor-embedded table; point users to the floating panel instead
-    const cta = `
-        <div style="margin-top:8px; padding:10px; background:#0b1220; border:1px dashed #fbbf24; border-radius:6px; color:#e5e7eb; font-size:12px;">
-            <div style="font-weight:600; color:#fbbf24; margin-bottom:4px;">🧊 Orderflow Table Moved</div>
-            <div>Use the toolbar button <strong>🧊 OF</strong> to open the floating orderflow panel. Drag it anywhere; close with ✕.</div>
-        </div>
-    `;
-
-    body.innerHTML = narrative + cta;
-    body.style.display = "block"; // Keep iceberg narrative visible
-    drawer.querySelector("#icebergDrawerStatus").textContent = "Collapse";
+    // Show the full Iceberg Story narrative (no table, just the narrative block)
+    body.innerHTML = narrative;
+    // Do not force open the drawer body; preserve user-collapsed state
 }
 
 function setupNewsDrawer(data) {
@@ -1467,6 +1616,10 @@ function setupGlobalMarketsDrawer(data) {
 }
 
 function renderIcebergOrderflow(zones, bars) {
+    // Always update the iceberg drawer/chart panel as well
+    if (typeof setupIcebergDrawer === 'function') {
+        setupIcebergDrawer(zones, bars);
+    }
     const zoneCount = Array.isArray(zones) ? zones.length : 0;
     const barCount = Array.isArray(bars) ? bars.length : 0;
     console.log(`🧊 renderIcebergOrderflow CALLED - ${zoneCount} zones, ${barCount} bars, visible=${orderflowVisible}`);
@@ -4074,11 +4227,119 @@ document.querySelectorAll('.tool-btn').forEach(btn => {
 });
 
 // ========== INDICATORS ==========
+
+
 document.querySelectorAll('.indicator-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const indicator = btn.dataset.indicator;
         console.log(`📊 Indicator toggled: ${indicator}`);
         btn.classList.toggle('active');
+
+        if (indicator === 'iceberg-zones') {
+            // Toggle iceberg price detection overlays on candlestick chart
+            icebergVisible = btn.classList.contains('active');
+            draw();
+            return;
+        }
+        if (indicator === 'iceberg-bubble') {
+            // Toggle the iceberg bubble absorption chart panel (drawer)
+                        let bubbleDrawer = document.getElementById('icebergBubbleDrawer');
+                        if (!bubbleDrawer) {
+                                bubbleDrawer = document.createElement('div');
+                                bubbleDrawer.id = 'icebergBubbleDrawer';
+                                bubbleDrawer.style.position = 'static';
+                                bubbleDrawer.style.margin = '0 0 12px 0';
+                                bubbleDrawer.style.background = '#f0e7ff';
+                                bubbleDrawer.style.border = '2px solid #a21caf';
+                                bubbleDrawer.style.borderRadius = '10px';
+                                bubbleDrawer.style.boxShadow = '0 4px 24px #a21caf33';
+                                bubbleDrawer.style.width = '100%';
+                                bubbleDrawer.style.maxWidth = '420px';
+                                bubbleDrawer.style.display = 'none';
+                                bubbleDrawer.innerHTML = `
+                                    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#a21caf;color:#fff;border-top-left-radius:8px;border-top-right-radius:8px;">
+                                        <span style="font-weight:bold;font-size:1.1em;">🫧 Iceberg Bubble Absorption Chart</span>
+                                        <button id="icebergBubbleClose" style="background:none;border:none;color:#fff;font-size:1.2em;cursor:pointer;">✕</button>
+                                    </div>
+                                    <div id="icebergBubbleContent" style="padding:0;min-height:220px;max-height:340px;overflow-y:auto;font-size:1em;color:#3b0764;">
+                                        <canvas id="bubbleAbsorptionCanvas" width="380" height="220" style="width:100%;height:220px;display:block;background:#f8fafc;border-radius:0 0 10px 10px;"></canvas>
+                                    </div>
+                                `;
+                                drawerContainer.appendChild(bubbleDrawer);
+                                document.getElementById('icebergBubbleClose').onclick = () => {
+                                    bubbleDrawer.style.display = 'none';
+                                    btn.classList.remove('active');
+                                };
+                        }
+                        // Toggle visibility
+                        const isOpen = bubbleDrawer.style.display === 'block';
+                        bubbleDrawer.style.display = isOpen ? 'none' : 'block';
+
+                        // Render bubble absorption chart
+                        if (!isOpen) {
+                                const canvas = document.getElementById('bubbleAbsorptionCanvas');
+                                if (canvas) {
+                                        const ctx = canvas.getContext('2d');
+                                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                        // Use icebergZones and ohlcBars for visualization
+                                        const zones = Array.isArray(icebergZones) ? icebergZones : [];
+                                        const bars = Array.isArray(ohlcBars) ? ohlcBars : [];
+                                        // Map price to Y
+                                        const prices = bars.map(b => b.close);
+                                        const minPrice = Math.min(...prices, ...zones.map(z => z.price_bottom));
+                                        const maxPrice = Math.max(...prices, ...zones.map(z => z.price_top));
+                                        const priceToY = price => {
+                                                return 200 - ((price - minPrice) / (maxPrice - minPrice + 1e-6)) * 180 + 10;
+                                        };
+                                        // Draw price axis
+                                        ctx.save();
+                                        ctx.strokeStyle = '#a21caf';
+                                        ctx.lineWidth = 1;
+                                        ctx.beginPath();
+                                        ctx.moveTo(50, 10);
+                                        ctx.lineTo(50, 210);
+                                        ctx.stroke();
+                                        ctx.restore();
+                                        // Draw bubbles for each iceberg zone
+                                        zones.forEach((zone, i) => {
+                                                const y = priceToY(zone.price_bottom);
+                                                const x = 80 + (i % 6) * 45;
+                                                const r = Math.max(12, Math.min(40, Math.sqrt(zone.volume) / 60));
+                                                ctx.save();
+                                                ctx.globalAlpha = 0.7;
+                                                ctx.beginPath();
+                                                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                                                ctx.fillStyle = zone.bias === 'BUY' ? '#10b981' : '#ef4444';
+                                                ctx.shadowColor = zone.bias === 'BUY' ? '#10b981' : '#ef4444';
+                                                ctx.shadowBlur = 8;
+                                                ctx.fill();
+                                                ctx.globalAlpha = 1.0;
+                                                ctx.font = 'bold 12px Segoe UI';
+                                                ctx.fillStyle = '#1e293b';
+                                                ctx.textAlign = 'center';
+                                                ctx.fillText(`$${zone.price_bottom.toFixed(2)}`, x, y - 2);
+                                                ctx.font = '10px Segoe UI';
+                                                ctx.fillStyle = '#334155';
+                                                ctx.fillText(`${zone.volume.toLocaleString()}`, x, y + 14);
+                                                ctx.restore();
+                                        });
+                                        // Draw axis labels
+                                        ctx.save();
+                                        ctx.font = '11px Segoe UI';
+                                        ctx.fillStyle = '#a21caf';
+                                        ctx.textAlign = 'right';
+                                        ctx.fillText(`Price`, 45, 18);
+                                        ctx.textAlign = 'left';
+                                        ctx.fillText(`Absorption`, 60, 210);
+                                        ctx.restore();
+                                }
+                        }
+                        return;
+        }
+        if (indicator === 'iceberg') {
+            // Legacy: do nothing (button replaced)
+            return;
+        }
         if (indicator === 'volume') {
             volumeVisible = btn.classList.contains('active');
             draw();
@@ -4108,12 +4369,6 @@ document.querySelectorAll('.indicator-btn').forEach(btn => {
             draw();
             return;
         }
-        if (indicator === 'iceberg') {
-            icebergVisible = btn.classList.contains('active');
-            draw();
-            return;
-        }
-
         if (indicator === 'sweeps') {
             sweepsVisible = btn.classList.contains('active');
             draw();
@@ -5333,10 +5588,10 @@ async function switchTimeframe(newTimeframe) {
 
 async function fetchTimeframeData(timeframe) {
     try {
-        const response = await fetch(`http://localhost:8000/api/ohlc/${timeframe}`);
+        const response = await fetch(`${API_BASE}/api/v1/api/ohlc/${timeframe}`);
         if (response.ok) {
             const data = await response.json();
-            timeframeCache[timeframe] = data || [];
+            timeframeCache[timeframe] = (data && data.bars) ? data.bars : [];
             ohlcBars = timeframeCache[timeframe];
             timeframeLastUpdate[timeframe] = Date.now();
         } else {
@@ -5671,8 +5926,25 @@ if (timeframeSelect) {
     });
 }
 
+
 // Initialize 5m as active
 switchTimeframe('1m');
+
+// Ensure mentor panel is collapsed by default on load
+window.addEventListener('DOMContentLoaded', () => {
+    const mentorPanel = document.getElementById('mentor');
+    const layoutDiv = document.getElementById('layout');
+    const mentorToggleBtn = document.getElementById('mentorToggleBtn');
+    if (mentorPanel && !mentorPanel.classList.contains('collapsed')) {
+        mentorPanel.classList.add('collapsed');
+    }
+    if (layoutDiv && !layoutDiv.classList.contains('mentor-collapsed')) {
+        layoutDiv.classList.add('mentor-collapsed');
+    }
+    if (mentorToggleBtn) {
+        mentorToggleBtn.classList.remove('active');
+    }
+});
 
 // ========== ORDERFLOW BUTTON HANDLERS ==========
 document.getElementById('orderflowVisBtn')?.addEventListener('click', () => {
@@ -5828,7 +6100,7 @@ document.getElementById('mentorToggleBtn')?.addEventListener('click', () => {
         
         // Trigger canvas resize after transition
         setTimeout(() => {
-            resizeCanvas();
+            resizeCanvases();
             draw();
         }, 300);
     }

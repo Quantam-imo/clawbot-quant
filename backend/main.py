@@ -36,8 +36,7 @@ print("=" * 60)
 
 if __name__ == "__main__":
     import uvicorn
-    from backend.api.server import app
-    
+    uvicorn.run("backend.api.server:app", host="0.0.0.0", port=8000, reload=True)
     print("\n🎯 Starting Quantum Market Observer API Server...\n")
     
     uvicorn.run(

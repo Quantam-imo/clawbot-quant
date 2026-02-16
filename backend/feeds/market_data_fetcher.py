@@ -1,3 +1,26 @@
+import os
+import importlib
+
+async def fetch_ohlc_candles_databento(limit: int = 100, interval: str = "5m"):
+    """Try to fetch OHLC candles from Databento. Returns None on failure."""
+    try:
+        from backend.feeds.databento_fetcher_clean import DatabentoCMLiveStream
+        api_key = os.getenv("DATABENTO_API_KEY")
+        if not api_key:
+            print("[Databento] No API key set, skipping Databento fetch.")
+            return None
+        stream = DatabentoCMLiveStream(api_key=api_key)
+        # You would implement a method like get_ohlc_candles in DatabentoCMLiveStream
+        if hasattr(stream, 'get_ohlc_candles'):
+            candles = await stream.get_ohlc_candles(limit=limit, interval=interval)
+            if candles:
+                print(f"[Databento] Loaded {len(candles)} candles from Databento.")
+                return candles
+        print("[Databento] get_ohlc_candles not implemented or returned no data.")
+        return None
+    except Exception as e:
+        print(f"[Databento] Error fetching candles: {e}")
+        return None
 """
 Market Data Fetcher - Real-time data from Yahoo Finance
 Provides live OHLC candlesticks and current market prices
@@ -192,47 +215,28 @@ class MarketDataFetcher:
         low_p = min(c["low"] for c in bucket_sorted)
         vol = sum(c.get("volume", 0) for c in bucket_sorted)
         ts = bucket_sorted[-1]["_dt"].isoformat()
-        return {
-            "timestamp": ts,
-            "open": open_p,
-            "high": high_p,
-            "low": low_p,
-            "close": close_p,
-            "volume": vol
-        }
-    
-    async def fetch_live_market_data(self) -> Dict:
-        """Fetch complete live market data from Yahoo Finance"""
-        try:
-            # Fetch from Yahoo Finance
-            price_task = asyncio.create_task(self.fetch_current_price())
-            candles_task = asyncio.create_task(self.fetch_ohlc_candles())
-            
-            price_data = await price_task
-            candles_data = await candles_task
-            
-            # Use Yahoo Finance data or fallback to demo
-            if price_data and candles_data:
-                print("✅ Yahoo Finance data loaded successfully")
-                return {
-                    "current_price": price_data["current_price"],
-                    "bid": price_data["bid"],
-                    "ask": price_data["ask"],
-                    "candles": candles_data,
-                    "timestamp": datetime.utcnow().isoformat(),
-                    "live": True,
-                    "source": "Yahoo Finance"
-                }
-            else:
-                # Fallback: Generate realistic demo data
-                print("⚠️  Using realistic demo data (Yahoo Finance unavailable)")
-                return self._generate_realistic_demo_data()
-        except Exception as e:
-            print(f"❌ Error in fetch_live_market_data: {e}")
-            return self._generate_realistic_demo_data()
-        except Exception as e:
-            print(f"❌ Error in fetch_live_market_data: {e}")
-            return self._generate_realistic_demo_data()
+        import os
+        import importlib
+
+        async def fetch_ohlc_candles_databento(limit: int = 100, interval: str = "5m", start: str = None, end: str = None):
+            """Try to fetch OHLC candles from Databento. Returns None on failure."""
+            try:
+                from backend.feeds.databento_fetcher_clean import DatabentoCMLiveStream
+                api_key = os.getenv("DATABENTO_API_KEY")
+                if not api_key:
+                    print("[Databento] No API key set, skipping Databento fetch.")
+                    return None
+                stream = DatabentoCMLiveStream(api_key=api_key)
+                if hasattr(stream, 'get_ohlc_candles'):
+                    candles = await stream.get_ohlc_candles(limit=limit, interval=interval, start=start, end=end)
+                    if candles:
+                        print(f"[Databento] Loaded {len(candles)} candles from Databento.")
+                        return candles
+                print("[Databento] get_ohlc_candles not implemented or returned no data.")
+                return None
+            except Exception as e:
+                print(f"[Databento] Error fetching candles: {e}")
+                return None
     
     def _generate_realistic_demo_data(self) -> Dict:
         """Generate realistic market simulation data"""
@@ -311,8 +315,12 @@ async def fetch_current_price() -> Optional[float]:
     return data["current_price"] if data else None
 
 
-async def fetch_ohlc_candles(limit: int = 100, interval: str = "5m") -> List[Dict]:
-    """Fetch OHLC candles for a specific interval."""
+async def fetch_ohlc_candles(limit: int = 100, interval: str = "5m", start: str = None, end: str = None) -> List[Dict]:
+    """Fetch OHLC candles for a specific interval, optionally for a historical range."""
+    databento_data = await fetch_ohlc_candles_databento(limit, interval, start, end)
+    if databento_data and len(databento_data) > 0:
+        return databento_data
+    # Fallback to Yahoo Finance if Databento fails or returns no data
     fetcher = await get_fetcher()
     data = await fetcher.fetch_ohlc_candles(limit, interval)
     return data or []
