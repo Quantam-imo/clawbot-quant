@@ -1,12 +1,20 @@
+
 from fastapi import Query
+from backend.feeds.market_data_fetcher import (
+    fetch_ohlc_candles,
+    fetch_live_market_data,
+    fetch_current_price
+)
+
 from fastapi import APIRouter
+# Define router at the very top so it is available for all endpoints
+router = APIRouter(prefix="/api/v1", tags=["institutional"])
 
 # Initialize router at the top so it is available for all endpoints
-router = APIRouter(prefix="/api/v1", tags=["institutional"])
 
 # ==================== OHLC API ENDPOINT ====================
 
-@router.get("/api/ohlc/{timeframe}")
+@router.get("/ohlc/{timeframe}")
 async def get_ohlc_data(
     timeframe: str,
     limit: int = Query(100, description="Number of bars to return"),
@@ -25,7 +33,7 @@ async def get_ohlc_data(
 # ==================== CLAWBOT Q&A ENDPOINT ====================
 
 
-from fastapi import Request, APIRouter
+from fastapi import Request
 from pydantic import BaseModel
 import os
 try:
@@ -34,8 +42,6 @@ except ImportError:
     openai = None
 
 
-# Initialize router at the top so it is available for all endpoints
-router = APIRouter(prefix="/api/v1", tags=["institutional"])
 
 class ClawbotAskRequest(BaseModel):
     question: str
@@ -114,7 +120,7 @@ FastAPI routes - Expose all engines via REST endpoints.
 Zero logic change to existing engines (pure wrapper layer).
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import HTTPException
 from fastapi.responses import StreamingResponse
 from datetime import datetime, timedelta
 from typing import Optional

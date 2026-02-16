@@ -17,6 +17,7 @@ if (host === "localhost" || host === "127.0.0.1") {
 }
 
 const API_BASE = `${proto}//${apiHost}`;
+window.API_BASE = API_BASE;
 
 /**
  * Get user context from localStorage or defaults

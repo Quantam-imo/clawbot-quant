@@ -25,7 +25,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 # Import routes
 from backend.api.routes import router
-from backend.api.v2 import router as router_v2
 
 # ==================== FASTAPI APP INITIALIZATION ====================
 
@@ -55,7 +54,6 @@ app.add_middleware(
 # ==================== ROUTE REGISTRATION ====================
 
 app.include_router(router)
-app.include_router(router_v2)
 
 
 # ==================== ROOT ENDPOINTS ====================

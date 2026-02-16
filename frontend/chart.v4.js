@@ -391,7 +391,7 @@ const THEMES = {
 };
 
 // API_BASE is now provided by api_client.js
-// No need to redefine here
+// Use window.API_BASE for all API calls
 
 // Draw mini price chart
 function drawMiniChart() {
@@ -490,40 +490,52 @@ function updatePriceTicker(price, source) {
 async function fetchData() {
     try {
         console.log(`🔄 Fetching chart data (${currentTimeframe})...`);
-        console.log(`📡 Fetch URL: ${API_BASE}/api/v1/chart`);
-        
-        const res = await fetch(`${API_BASE}/api/v1/chart`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ bars: 100, interval: currentTimeframe })
-        });
-        
+        console.log(`📡 Fetch URL: ${window.API_BASE}/api/v1/chart`);
+        let res;
+        try {
+            res = await fetch(`${window.API_BASE}/api/v1/chart`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ bars: 100, interval: currentTimeframe })
+            });
+        } catch (networkError) {
+            console.error('❌ Network error while fetching chart data:', networkError);
+            const mentorEl = document.getElementById("mentorText");
+            if (mentorEl) {
+                mentorEl.innerText = `⚠️ Network error. Check backend/API server.`;
+            }
+            return;
+        }
         // Track Databento usage
         updateDatabentoUsage(res);
-        
         console.log(`📡 Response status: ${res.status} ${res.statusText}`);
-        
         if (!res.ok) {
             console.error(`❌ HTTP Error: ${res.status} - Failed to fetch ${currentTimeframe} data`);
             const mentorEl = document.getElementById("mentorText");
             if (mentorEl) {
                 mentorEl.innerText = `⚠️ API Error ${res.status}. Using demo data.`;
             }
-            
-            // Use demo/cached data if available
             if (ohlcBars.length === 0) {
                 console.log("⚠️ No cached data, chart will show loading state");
             }
             return;
         }
-        
-        const data = await res.json();
+        let data;
+        try {
+            data = await res.json();
+        } catch (jsonError) {
+            console.error('❌ Failed to parse chart data JSON:', jsonError);
+            const mentorEl = document.getElementById("mentorText");
+            if (mentorEl) {
+                mentorEl.innerText = `⚠️ Invalid data from API.`;
+            }
+            return;
+        }
         console.log("📊 API Response received:", {
             symbol: data.symbol,
             interval: data.interval,
             barCount: data.bars ? data.bars.length : 0
         });
-
         if (!data.bars || data.bars.length === 0) {
             console.error("❌ No chart data received from API");
             const mentorEl = document.getElementById("mentorText");
@@ -532,13 +544,11 @@ async function fetchData() {
             }
             return;
         }
-
         // Update data source indicator
         dataSource = data.source || "Live";
         console.log(`✅ Chart data loaded: ${data.bars.length} candles (${dataSource})`);
         console.log(`📈 First candle:`, data.bars[0]);
         console.log(`📈 Last candle:`, data.bars[data.bars.length - 1]);
-
         // Replace OHLC bars with live/demo data
         const previousCandleCount = ohlcBars.length;
         ohlcBars = data.bars.map((bar, idx) => {

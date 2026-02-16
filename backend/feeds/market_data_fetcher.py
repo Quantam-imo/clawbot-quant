@@ -1,18 +1,22 @@
 import os
 import importlib
 
-async def fetch_ohlc_candles_databento(limit: int = 100, interval: str = "5m"):
+async def fetch_ohlc_candles_databento(limit: int = 100, interval: str = "5m", start: str = None, end: str = None):
     """Try to fetch OHLC candles from Databento. Returns None on failure."""
     try:
         from backend.feeds.databento_fetcher_clean import DatabentoCMLiveStream
+        from datetime import datetime, timedelta, timezone
         api_key = os.getenv("DATABENTO_API_KEY")
         if not api_key:
             print("[Databento] No API key set, skipping Databento fetch.")
             return None
+        # Set 'end' to 15 minutes before now if not provided
+        if end is None:
+            now = datetime.now(timezone.utc)
+            end = (now - timedelta(minutes=15)).replace(microsecond=0).isoformat()
         stream = DatabentoCMLiveStream(api_key=api_key)
-        # You would implement a method like get_ohlc_candles in DatabentoCMLiveStream
         if hasattr(stream, 'get_ohlc_candles'):
-            candles = await stream.get_ohlc_candles(limit=limit, interval=interval)
+            candles = await stream.get_ohlc_candles(limit=limit, interval=interval, start=start, end=end)
             if candles:
                 print(f"[Databento] Loaded {len(candles)} candles from Databento.")
                 return candles
@@ -236,7 +240,7 @@ class MarketDataFetcher:
                 return None
             except Exception as e:
                 print(f"[Databento] Error fetching candles: {e}")
-                return None
+            return None
     
     def _generate_realistic_demo_data(self) -> Dict:
         """Generate realistic market simulation data"""

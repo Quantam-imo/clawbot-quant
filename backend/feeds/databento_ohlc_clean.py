@@ -33,7 +33,7 @@ def get_ohlc_candles(api_key, symbol, dataset, limit=100, interval="5m", start=N
         candle_start = None
         candle_count = 0
         for msg in data:
-            # Only process messages that have all required attributes
+            # Only process messages that have all required attributes and skip all others
             if not (hasattr(msg, "ts") and hasattr(msg, "price") and hasattr(msg, "size")):
                 continue
             ts = datetime.fromtimestamp(msg.ts / 1e9)

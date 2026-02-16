@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
+// Use environment variable for API base URL, fallback to localhost
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 import './App.css';
 
 const panels = [
@@ -20,25 +23,35 @@ function App() {
   const handlePanel = async (key) => {
     setActivePanel(key);
     setResult('Loading...');
-    if (key === 'volume') {
-      const res = await axios.post('http://localhost:8000/api/volume-profile', { symbol, interval });
-      if (res.data.error) {
-        setResult('Error: ' + res.data.error);
-      } else {
-        setResult(JSON.stringify(res.data, null, 2));
+    try {
+      if (key === 'volume') {
+        const res = await axios.post(`${API_BASE_URL}/api/volume-profile`, { symbol, interval });
+        if (res.data.error) {
+          setResult('Error: ' + res.data.error);
+        } else {
+          setResult(JSON.stringify(res.data, null, 2));
+        }
+      } else if (key === 'gann') {
+        const res = await axios.get(`${API_BASE_URL}/api/gann`);
+        setResult(res.data.result);
+      } else if (key === 'astrology') {
+        const res = await axios.get(`${API_BASE_URL}/api/astrology`);
+        setResult(res.data.result);
+      } else if (key === 'news') {
+        const res = await axios.post(`${API_BASE_URL}/api/news`, { symbol: newsSymbol });
+        setResult(`${res.data.news}\nMarket Move: ${res.data.market_move}`);
+      } else if (key === 'mentor') {
+        const res = await axios.get(`${API_BASE_URL}/api/ai-mentor/volume`);
+        setResult(res.data.text);
       }
-    } else if (key === 'gann') {
-      const res = await axios.get('http://localhost:8000/api/gann');
-      setResult(res.data.result);
-    } else if (key === 'astrology') {
-      const res = await axios.get('http://localhost:8000/api/astrology');
-      setResult(res.data.result);
-    } else if (key === 'news') {
-      const res = await axios.post('http://localhost:8000/api/news', { symbol: newsSymbol });
-      setResult(`${res.data.news}\nMarket Move: ${res.data.market_move}`);
-    } else if (key === 'mentor') {
-      const res = await axios.get('http://localhost:8000/api/ai-mentor/volume');
-      setResult(res.data.text);
+    } catch (err) {
+      if (err.response && err.response.data && err.response.data.error) {
+        setResult('API Error: ' + err.response.data.error);
+      } else if (err.message) {
+        setResult('Network Error: ' + err.message);
+      } else {
+        setResult('Unknown error occurred.');
+      }
     }
   };
 

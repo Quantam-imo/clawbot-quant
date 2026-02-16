@@ -408,3 +408,1203 @@ INFO:     Started server process [4104]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+INFO:     127.0.0.1:58724 - "GET /api/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58732 - "OPTIONS /api/v1/chart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58732 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58734 - "OPTIONS /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58732 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58734 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58734 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58734 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58734 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58732 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "OPTIONS /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58732 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58736 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36462 - "GET /api/docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58736 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58736 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58736 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58736 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39928 - "GET /api/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:58736 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58752 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58752 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58752 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58752 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58752 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58752 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:58766 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58766 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43202 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43202 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43202 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43202 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43202 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43202 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:34888 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:34888 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:34888 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:34888 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45372 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34888 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52600 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54178 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45382 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60926 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54186 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35912 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54186 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:46192 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35922 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35922 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33968 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     Started server process [12974]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+
+============================================================
+🛑 Quantum Market Observer Backend Shutting Down...
+============================================================
+INFO:     127.0.0.1:33980 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:33980 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:33980 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:33980 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33980 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:33980 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40892 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33980 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40900 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:40900 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55874 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55890 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:47170 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:42668 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55884 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42678 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4104]
+INFO:     Started server process [14360]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+INFO:     127.0.0.1:50494 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50494 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50494 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50494 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50508 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50508 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50508 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54362 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50508 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50508 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41098 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50508 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41108 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41108 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41108 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41108 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41108 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41108 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55670 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55670 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50714 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50714 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60714 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14360]
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+Traceback (most recent call last):
+  File "/workspaces/clawbot-quant/.venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 424, in main
+    run(
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 594, in run
+    server.run()
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/workspaces/clawbot-quant/backend/api/server.py", line 27, in <module>
+    from backend.api.routes import router
+  File "/workspaces/clawbot-quant/backend/api/routes.py", line 8, in <module>
+    @router.get("/ohlc/{timeframe}")
+     ^^^^^^
+NameError: name 'router' is not defined
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+Traceback (most recent call last):
+  File "/workspaces/clawbot-quant/.venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 424, in main
+    run(
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/main.py", line 594, in run
+    server.run()
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 67, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 71, in serve
+    await self._serve(sockets)
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in _serve
+    config.load()
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 439, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/clawbot-quant/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/workspaces/clawbot-quant/backend/api/server.py", line 27, in <module>
+    from backend.api.routes import router
+  File "/workspaces/clawbot-quant/backend/api/routes.py", line 8, in <module>
+    @router.get("/ohlc/{timeframe}")
+     ^^^^^^
+NameError: name 'router' is not defined
+INFO:     Started server process [19222]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+INFO:     127.0.0.1:56510 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56510 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56510 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56510 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35394 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56510 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35402 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35402 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35418 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:35402 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35402 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35402 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35402 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "OPTIONS /api/v1/chart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37976 - "OPTIONS /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56628 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37976 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37976 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37976 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37976 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37976 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59336 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59336 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59336 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59336 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:59336 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36438 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "OPTIONS /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36438 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36448 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36448 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36448 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36448 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36448 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55252 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55252 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55252 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55252 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55252 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41570 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41570 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49164 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41580 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41584 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49164 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41584 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41584 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49164 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49164 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52712 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     Started server process [20832]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+
+============================================================
+🛑 Quantum Market Observer Backend Shutting Down...
+============================================================
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37506 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37506 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37506 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39308 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50336 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52718 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52718 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58152 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:47508 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50350 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50350 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43662 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43670 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43670 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43670 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43670 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43670 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43670 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43670 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43670 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49500 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49500 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49500 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49500 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49500 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:49516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38822 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     Started server process [22354]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+
+============================================================
+🛑 Quantum Market Observer Backend Shutting Down...
+============================================================
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:46702 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38824 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:38824 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43602 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43628 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:43614 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40736 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43614 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43614 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36862 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36874 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36874 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36874 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36874 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36874 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36874 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57764 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57764 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57764 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57764 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57764 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57764 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57764 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57764 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45516 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45516 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57764 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45516 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45290 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45290 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45290 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45290 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45290 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45290 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44868 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44868 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44868 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44868 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44868 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44868 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32970 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:32986 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:32986 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:32986 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:32986 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32986 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:32986 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36792 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36792 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36792 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36792 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36792 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:36792 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44642 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44642 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35558 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44628 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44628 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51352 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51364 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51364 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51364 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51364 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51364 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51364 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [19222]
+INFO:     Started server process [26317]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+INFO:     127.0.0.1:54192 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54192 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54192 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54192 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54192 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54192 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39082 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39102 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39106 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:39098 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52268 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39098 - "OPTIONS /api/v1/chart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52268 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52268 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52268 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52268 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52268 - "OPTIONS /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56912 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37480 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37480 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50376 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50398 - "GET /openapi.json HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:48654 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36790 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36800 - "OPTIONS /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "GET /api/v2/mentor/signal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50386 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:50386 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26317]
+INFO:     Started server process [27269]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[DEBUG] DATABENTO_API_KEY at startup: db-8SxtYFUjDfDmr73PC84AgQqi6jK8t
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+✅ Loaded 0 orders into memory from database
+
+🧹 Running automatic cleanup (retention: 15 days)...
+✅ Auto-cleanup: No orders older than 15 days (all data is recent)
+============================================================
+🚀 Quantum Market Observer Backend Starting...
+============================================================
+📍 Engines initialized:
+   ✓ Gann Engine
+   ✓ Astro Engine
+   ✓ Cycle Engine
+   ✓ Liquidity Engine
+   ✓ Iceberg Engine
+   ✓ QMO Adapter
+   ✓ IMO Adapter
+   ✓ Confidence Engine
+   ✓ Mentor Brain
+============================================================
+📊 API Documentation: http://localhost:8000/api/docs
+============================================================
+INFO:     127.0.0.1:35392 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35392 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35392 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35392 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53182 - "GET /api/v1/ohlc/5m?symbol=GC=F&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35392 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35392 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:35392 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43170 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "GET /api/v2/mentor/signal HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43182 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43182 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43182 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43182 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:43182 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43182 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45144 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45144 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45144 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45144 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:45144 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51382 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51384 - "GET /api/v2/mentor/signal HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51384 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51384 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51384 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51384 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44788 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51396 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51396 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57870 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57872 - "GET /api/v2/mentor/signal HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57878 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57878 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57878 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "POST /api/v1/chart HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57878 - "GET /api/v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "POST /api/v1/candle/5min/predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27269]
